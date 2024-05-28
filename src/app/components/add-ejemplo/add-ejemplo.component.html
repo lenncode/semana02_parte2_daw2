@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <mat-toolbar color="primary">
+            <span>Registra Ejemplo</span>
+        </mat-toolbar>
+    </div>
+    <div class="row" style="margin-top: 3%">
+        <mat-form-field class="col-md-4">
+            <mat-label>Razon Social</mat-label>
+            <input matInput [(ngModel)]="objEjemplo.razonSocial">
+        </mat-form-field>
+        <mat-form-field class="col-md-4">
+            <mat-label>Direccion</mat-label>
+            <input matInput [(ngModel)]="objEjemplo.direccion">
+        </mat-form-field>
+         <mat-form-field class="col-md-4">
+            <mat-label>ruc</mat-label>
+            <input matInput [(ngModel)]="objEjemplo.ruc">
+        </mat-form-field>
+        <mat-form-field class="col-md-4">
+            <mat-label>Gerente</mat-label>
+            <input matInput [(ngModel)]="objEjemplo.gerente">
+        </mat-form-field>
+        <mat-form-field class="col-md-4">
+            <mat-label>Fecha Creacion</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="objEjemplo.fechaCreacion">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="col-md-4">
+            <mat-label>País</mat-label>
+            <mat-select [(ngModel)]="objEjemplo.pais!.idPais">
+                <mat-option value="-1"> [Seleccione] </mat-option>
+                <mat-option *ngFor="let x of listPais" [value]="x.idPais">
+                    {{x.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button mat-raised-button type="submit" color="primary" (click)="registraEjemplo()">Registra</button>
+          
+    </div>
+
+</div>
